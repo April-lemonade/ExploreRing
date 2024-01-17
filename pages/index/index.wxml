@@ -1,0 +1,15 @@
+<view bindtouchstart='touchStart' bindtouchmove="touchmove" bind:touchend="touchend">
+  <view class="{{position?'mask':''}}">
+    <view wx:if="{{!device}}" style="width: 100vw;height:100vh;text-align: center;display: flex;flex-direction: column;margin-top: 10%;">
+      <icon type="info" size="60" />
+      <view style="margin-top: 5%;">请使用iPad设备</view>
+    </view>
+    <scroll-view wx:if="{{device}}" scroll-x="true" scroll-y="true" style="width: 100%;height: 100vh;position: absolute;z-index: -1;" id="scrv">
+      <view style="background: url('https://636c-cloud1-5grlqqzee599543a-1316694133.tcb.qcloud.la/line.png?sign=7387c9a7e7b815dfb08dbf46044480fa&t=1698419528') no-repeat;width: 150vw;height:300vh;background-size: cover;">
+        <view wx:if="{{showCircle}}" style="width: {{2*r}}px;height: {{2*r}}px;top:{{lastY-r}}px;left: {{lastX-r}}px;border-radius:{{2*r}}px;position: relative;overflow: hidden;">
+          <image src="https://636c-cloud1-5grlqqzee599543a-1316694133.tcb.qcloud.la/colourful.png?sign=8f3a044464d307b924d0838a4ea941b9&t=1698419590" mode="heightFix" style="width: 150vw;height:300vh;left: {{-lastX+r}}px;top:{{-lastY+r}}px;position: absolute;z-index: 100;"></image>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
